@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS assinaturas;
+
+CREATE TABLE assinaturas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    nome TEXT NOT NULL,
+    setor TEXT NOT NULL,
+    telefone TEXT NOT NULL,
+    email TEXT NOT NULL
+);

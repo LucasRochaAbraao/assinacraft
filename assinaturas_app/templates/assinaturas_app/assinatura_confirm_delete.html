@@ -1,0 +1,18 @@
+{% extends 'assinaturas_app/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'assinaturas' %}">&#8592;Voltar</a>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <p>Tem certeza que deseja excluir a assinatura "{{assinatura}}"?</p>
+        <input class="button" type="submit" value="Excluir" />
+    </form>
+</div>
+
+
+
+{% endblock content %}

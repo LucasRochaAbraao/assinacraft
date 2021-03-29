@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS login;
+
+CREATE TABLE login (
+    user_id NUMBER PRIMARY KEY AUTOINCREMENT,
+    email TEXT NOT NULL,
+    password TEXT NOT NULL
+);

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Your Name {% endblock %}</h1>
+    
+    {% for assinatura in assinaturas %}
+        <a href="#">
+            <h2>{{ assinatura['nome'] }}</h2>
+        </a>
+        <p class="secundario">{{ assinatura['setor'] }}</p>
+        <p class="secundario">{{ assinatura['telefone'] }}</p>
+        <p class="secundario">{{ assinatura['email'] }}</p>
+        <hr>
+    {% endfor %}
+{% endblock %}
