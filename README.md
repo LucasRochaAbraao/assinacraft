@@ -1,5 +1,7 @@
 # Assinatura-gen
-Esse repositório hospeda o código do Gerador de assinaturas de e-mail dos colaboradores da QUICK FIBRA. A manutenção da criação de assinaturas de e-mails é desgastante, pois com mudanças no quadro de colaboradores e na mudança de cargos, é necessário criar / excluir / alterar as assinaturas, que são editadas por uma agência de marketing. Eu criei esse APP para que o gestor de cada colaborador seja capaz de editar a própria assinatura, sob supervisão de seu gestor. Dessa forma, fica muito mais fácil manter tudo atualizado, principalmente com o crescimento do quadro de colaboradores.
+Esse repositório hospeda o código do Gerador de assinaturas de e-mail dos colaboradores da QUICK FIBRA. A manutenção da criação de assinaturas de e-mails é desgastante, pois com mudanças no quadro de colaboradores e na mudança de cargos, é necessário criar / excluir / alterar cada campo das assinaturas, que são editadas por uma agência de marketing. Eu criei esse APP para que o gestor de cada colaborador seja capaz de editar a própria assinatura, sob supervisão de seu gestor. Dessa forma, fica muito mais fácil manter tudo atualizado, principalmente com o crescimento do quadro de colaboradores.
+
+Minha assinatura como exemplo (note que cada campo de texto na porte da direita da imagem é gerado pelo script):
 
 ![Minha assinatura como exemplo](assinaturas_ex/lucasrochaabraao.png)
 
