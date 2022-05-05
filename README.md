@@ -6,4 +6,4 @@ Minha assinatura como exemplo (note que cada campo de texto na porte da direita 
 ![Minha assinatura como exemplo](assinaturas_ex/lucasrochaabraao.png)
 
 Status atual (em desenvolvimento):
-Já existe uma página web através do django que permite criar itens (assinaturas). Porém ainda não implementei os scripts que geram as assinaturas nos views do django. Se rodar o script encontrado em `Assinaturas_scripts` é possível gerar as assinaturas automaticamente através do terminal mesmo. Ou seja, já consigo automatizar a geração de criação/modificação de assinaturas, porém a parte web onde o próprio colaborador vai interagir não está pronto.
+Estava pensando em fazer uma página web onde cada funcionário gerencia sua própria assinatura. Mas mudei de ideia, e vou fazer um simples desktop app onde o RH gerencia essas assinaturas, usando SimplePyGui. Por enquanto, ainda funciona através de script. Essa funcionalidade de script vai passar pro app. Eventualmente posso pensar em refazer o projeto todo em Pygame (ou parecido), onde terei mais possibilidades de manipular a imagem.

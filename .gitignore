@@ -1,3 +1,3 @@
-.venv
-.env
-
+assinaturas_personalizadas/*
+!assinaturas_personalizadas/.gitkeep
+elenco_real.csv
