@@ -1,4 +1,5 @@
 import csv
+from operator import mod
 import pathlib
 import subprocess
 import os
@@ -142,7 +143,6 @@ def main_app():
                 f'Versão 1.0\nPrograma grátis!\nMas caso queira ajudar o\nprogramador com qualquer valor:\npix@lucasrochaabraao.com.br\nLucas Rocha Abraão',
                 title = 'Assinaturas',
                 font = FONT_MTSERRAT,
-                #text_color='#00910b',
                 auto_close=True,
                 auto_close_duration=10,
                 grab_anywhere=True,
@@ -162,8 +162,21 @@ def main_app():
             telefone2 = values['-TELEFONE2-']
             email = values['-EMAIL-']
             assinatura = Assinatura(nome, setor, [telefone1, telefone2], email)
-            assinatura.gravar()
-            print(f'Gerando a assinatura {assinatura}')
+            print(f'Validando a assinatura: {assinatura}')
+            if not validar_persistencia(assinatura):
+                assinatura.gerar()
+            else:
+                window.disappear()
+                sg.popup(
+                    f'Essa assinatura já existe!',
+                    title = 'Assinaturas',
+                    font = FONT_MTSERRAT,
+                    auto_close=True,
+                    auto_close_duration=3,
+                    grab_anywhere=True,
+                    no_titlebar=True,
+                )
+            window.reappear()
             ## abrir file explorer where the signature was generated
             subprocess.Popen(f'explorer {PROJECT_PATH}\\assinaturas_personalizadas')
 
@@ -175,21 +188,48 @@ def main_app():
 
     window.close()
 
+def validar_persistencia(assinatura):
+    """ essa função garante que cada assinatura criada individualmente
+        também é inserida no arquivo elenco.csv, caso já não esteja."""
+    with open(file='elenco.csv', encoding='utf-8', mode='r') as csvfile:
+        reader_colaboradores = csv.DictReader(csvfile)
+        for colaborador in reader_colaboradores: # valida a assinatura nova contra cada item do csv
+            if colaborador['NOME'] == assinatura.nome and\
+                colaborador['SETOR/CARGO'] == assinatura.setor and\
+                [colaborador['TELEFONE 1'], colaborador['TELEFONE 2']] == [assinatura.telefone_particular, assinatura.telefone_secundario] and\
+                colaborador['EMAIL'] == assinatura.email:
+                    return True # retorna verdadeiro caso já existe no elenco.csv
+    # se não retornou verdadeiro acima, precisamos inserir no elenco.csv para
+    # persistência (no caso de gerar em massa). Obs: garanta que o arquivo csv
+    # tenha a última linha em branco sempre.
+    with open(file='elenco.csv', mode='a', encoding='utf-8', newline='') as csvfile:
+        fieldnames = ['NOME', 'SETOR/CARGO', 'TELEFONE 1', 'TELEFONE 2', 'EMAIL']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writerow({
+            'NOME': assinatura.nome,
+            'SETOR/CARGO': assinatura.setor,
+            'TELEFONE 1': assinatura.telefone_particular,
+            'TELEFONE 2': assinatura.telefone_secundario,
+            'EMAIL': assinatura.email
+        })
+    return False # já que precisa gerar a imagem da assinatura também.
+
 def delete_current_signatures():
     for file in os.scandir('assinaturas_personalizadas'):
         os.remove(file.path)
     open('assinaturas_personalizadas/.gitkeep', 'a').close() # importante para manter o versionamento do git quando não tiver nada aqui
 
 def create_signature_mass():
-    arquivo_csv = csv.DictReader(open("elenco.csv", encoding='utf-8'))
-    for colaborador in arquivo_csv:
-        nome = colaborador['NOME']
-        setor = colaborador['SETOR/CARGO']
-        telefone = [colaborador['TELEFONE 1'], colaborador['TELEFONE 2']]
-        email = colaborador['EMAIL']
-        assinatura = Assinatura(nome, setor, telefone, email)
-        print(assinatura)
-        assinatura.gravar()
+    with open(file='elenco.csv', encoding='utf-8') as csvfile:
+        reader_colaboradores = csv.DictReader(csvfile)
+        for colaborador in reader_colaboradores:
+            nome = colaborador['NOME']
+            setor = colaborador['SETOR/CARGO']
+            telefone = [colaborador['TELEFONE 1'], colaborador['TELEFONE 2']]
+            email = colaborador['EMAIL']
+            assinatura = Assinatura(nome, setor, telefone, email)
+            print(assinatura)
+            assinatura.gerar()
 
 if __name__ == '__main__':
     main_app()

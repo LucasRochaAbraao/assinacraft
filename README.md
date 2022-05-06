@@ -20,5 +20,4 @@ Para instalar o app e criar um executável, faça assim:
 Em alguns segundos haverá um executável (.exe) no mesmo diretório que o arquivo fonte. Caso queira colocar o executável em outro local, criei um atalho. O arquivo original deve sempre estar na mesma pasta relativa que os arquivos e pastas `assinaturas_personalizadas`, `elenco.csv`, `resources`, `src`. Já o atalho pode ser colocado em qualquer lugar, que vai conseguir encontrar esses arquivos e pastas sem problemas.
 
 ##### TODO
-- Quando cria uma assinatura individual, ela não vai pra lista `elenco.csv`, então quando o usuário clica no botão gerar em massa o script apaga todas assinaturas e gera novas apartir desse arquivo, porém sem as assinaturas criadas individualmente.
 - Permitir rodar o botão de gerar assinaturas em massa sem precisar apagar tudo antes (o script já faz isso, mas o ideal é ter uma checagem).

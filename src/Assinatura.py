@@ -42,7 +42,7 @@ class Assinatura:
             return f'assinaturas_personalizadas/{nome}_.png'
         return arquivo_path
 
-    def gravar(self):
+    def gerar(self):
         # nome
         font = ImageFont.truetype("resources/fonts/darwin-pro-cufonfonts/Los Andes Type  Darwin Pro SemiBold.otf", 21)
         self.draw.text(xy=(261, 42), text=self.caps(self.nome), fill=self.DOURADO, font=font, align='right', anchor='la')
