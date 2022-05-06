@@ -31,30 +31,30 @@ class Assinatura:
         return ' '.join(resultado)            
   
     def validar_nome(self, nome):
-        arquivo_path = f'/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/assinaturas_personalizadas/{nome}.png'
-        arquivo_path_ = f'/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/assinaturas_personalizadas/{nome}_.png'
+        arquivo_path = f'assinaturas_personalizadas/{nome}.png'
+        arquivo_path_ = f'assinaturas_personalizadas/{nome}_.png'
         if os.path.exists(arquivo_path) or os.path.exists(arquivo_path_):
             print("existe:", nome)
             if os.path.exists(arquivo_path_):
-                return f'/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/assinaturas_personalizadas/{nome}__.png'
-            return f'/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/assinaturas_personalizadas/{nome}_.png'
+                return f'assinaturas_personalizadas/{nome}__.png'
+            return f'assinaturas_personalizadas/{nome}_.png'
         return arquivo_path
 
 
     def gravar(self):
         # nome
-        font = ImageFont.truetype("/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/resources/fonts/darwin-pro-cufonfonts/Los Andes Type  Darwin Pro SemiBold.otf", 21)
+        font = ImageFont.truetype("resources/fonts/darwin-pro-cufonfonts/Los Andes Type  Darwin Pro SemiBold.otf", 21)
         self.draw.text(xy=(261, 42), text=self.caps(self.nome), fill=self.DOURADO, font=font, align='right', anchor='la')
 
         # setor
         if len(self.setor) > 20:
-            font = ImageFont.truetype("/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/resources/fonts/darwin-pro-cufonfonts/Los Andes Type  Darwin Pro Regular.otf", 13)
+            font = ImageFont.truetype("resources/fonts/darwin-pro-cufonfonts/Los Andes Type  Darwin Pro Regular.otf", 13)
         else:
-            font = ImageFont.truetype("/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/resources/fonts/darwin-pro-cufonfonts/Los Andes Type  Darwin Pro Regular.otf", 14)
+            font = ImageFont.truetype("resources/fonts/darwin-pro-cufonfonts/Los Andes Type  Darwin Pro Regular.otf", 14)
         self.draw.text((261, 67), text=self.caps(self.setor), fill=self.BRANCO, font=font, align='right', anchor='la')
 
         # telefone
-        font = ImageFont.truetype("/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/resources/fonts/estandar/Estandar-Regular.ttf", 13)
+        font = ImageFont.truetype("resources/fonts/estandar/Estandar-Regular.ttf", 13)
         if self.telefone_celular: # se tem um número de celular
             self.draw.text(((281, 104)), self.telefone_celular, self.BRANCO, font=font, align='right', anchor='la')
             self.draw.text(((300, 127)), self.telefone_fixo, self.BRANCO, font=font, align='right', anchor='la')
@@ -62,10 +62,10 @@ class Assinatura:
             self.draw.text(((300, 127)), self.telefone_fixo, self.BRANCO, font=font, align='right', anchor='la')
 
         # email
-        font = ImageFont.truetype("/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/resources/fonts/estandar/Estandar-Regular.ttf", 14)
+        font = ImageFont.truetype("resources/fonts/estandar/Estandar-Regular.ttf", 14)
         self.draw.text(((261, 82)), self.email, self.BRANCO, font=font, align='right', anchor='la')
         
-        #nome_arquivo = f'/home/lucas/Dev/Assinatura-gen/Assinaturas_scripts/assinaturas_personalizadas/{nome}'
+        #nome_arquivo = f'assinaturas_personalizadas/{nome}'
         nome_arquivo = self.validar_nome("_".join(self.nome.split()))
             
         self.image.save(nome_arquivo)

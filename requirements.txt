@@ -1,0 +1,7 @@
+altgraph==0.17.2
+Pillow==9.1.0
+pyinstaller==5.0.1
+pyinstaller-hooks-contrib==2022.4
+PySimpleGUI==4.59.0
+pysimplegui-exemaker==1.3.0
+PyYAML==6.0

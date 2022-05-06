@@ -1,5 +1,6 @@
 NOME,SETOR/CARGO,TELEFONE 1,TELEFONE 2,EMAIL
 alguma pessoa,diretora administrativa,ddd 91111-2222,ddd 93333-4444,conta@dominio.com.br
-mais alguém,analista técnico,ddd 95555-6666,outra_conta@dominio.com.br
-ultimo colaborador, rh, ddd 97777-8888,rh@dominio.com.br
-ultimo colaborador, financeiro, ddd 97777-8888,financeiro@dominio.com.br
+mais alguém,analista técnico,ddd 95555-6666,,outra_conta@dominio.com.br
+ultimo colaborador, rh, ddd 97777-8888,,rh@dominio.com.br
+ultimo colaborador, financeiro, ddd 97777-8888,,financeiro@dominio.com.br
+Lucas Rocha, dev, 11 91207-0808,,pix@lucasrochaabraao.com.br

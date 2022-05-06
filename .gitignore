@@ -1,3 +1,6 @@
 assinaturas_personalizadas/*
 !assinaturas_personalizadas/.gitkeep
+!assinaturas_personalizadas/Lucas_Rocha.png
 elenco_real.csv
+.venv
+src/__pycache__/
