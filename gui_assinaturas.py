@@ -57,6 +57,7 @@ def create_main_window(theme):
             #     enable_events=True,
             #     key = '-CLOSE-',
             # )
+            sg.Image(source='resources/img/logo.png', subsample=14, pad=((0, 20), (1, 5)))
         ],
         [sg.HorizontalSeparator(pad=((0, 0), (0, 10)))],
         [
@@ -174,7 +175,7 @@ def main_app():
                     auto_close=True,
                     auto_close_duration=3,
                     grab_anywhere=True,
-                    no_titlebar=True,
+                    no_titlebar=True
                 )
             window.reappear()
             ## abrir file explorer where the signature was generated

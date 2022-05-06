@@ -1,17 +1,14 @@
 import csv
 import os
-from src.Assinatura import Assinatura
-
-import locale
-print(locale.getpreferredencoding())
+from Assinatura import Assinatura
 
 def delete_current_signatures():
-    for file in os.scandir('assinaturas_personalizadas'):
+    for file in os.scandir('../assinaturas_personalizadas'):
         os.remove(file.path)
-    open('assinaturas_personalizadas/.gitkeep', 'a').close() # importante para manter o versionamento do git quando não tiver nada aqui
+    open('../assinaturas_personalizadas/.gitkeep', 'a').close() # importante para manter o versionamento do git quando não tiver nada aqui
 
 def criar_assinaturas():
-    arquivo_csv = csv.DictReader(open("elenco.csv", encoding='utf-8'))
+    arquivo_csv = csv.DictReader(open("../elenco.csv", encoding='utf-8'))
     for colaborador in arquivo_csv:
         nome = colaborador['NOME']
         setor = colaborador['SETOR/CARGO']
