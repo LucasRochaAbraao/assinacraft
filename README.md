@@ -22,4 +22,3 @@ Em alguns segundos haverá um executável (.exe) no mesmo diretório que o arqui
 ##### TODO
 - Quando cria uma assinatura individual, ela não vai pra lista `elenco.csv`, então quando o usuário clica no botão gerar em massa o script apaga todas assinaturas e gera novas apartir desse arquivo, porém sem as assinaturas criadas individualmente.
 - Permitir rodar o botão de gerar assinaturas em massa sem precisar apagar tudo antes (o script já faz isso, mas o ideal é ter uma checagem).
-- BUG: o script não está diferenciando entre 1 e 2 números de telefone.
