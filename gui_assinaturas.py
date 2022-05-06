@@ -1,4 +1,6 @@
 import csv
+import pathlib
+import subprocess
 import os
 import yaml
 from cgitb import text
@@ -10,6 +12,7 @@ QT_ENTER_KEY1 = 'special 16777220'
 QT_ENTER_KEY2 = 'special 16777221'
 FONT_MTSERRAT = 'resources/fonts/Montserrat/Montserrat-Regular.ttf 11'
 FONT_GRANDSTANDER = 'resources/fonts/Grandstander/Grandstander-Black.ttf 15 bold'
+PROJECT_PATH = pathlib.Path(__file__).parent.resolve()
 THEME_MENU = [
     # original theme names: 'DarkBlue4', 'DarkBlue14', 'DarkGrey10', 'DarkTeal12', 'random'
     'menu', ['Roxo Claro', 'Azul Escuro', 'Escuro', 'Padrão', 'Aleatório']
@@ -136,14 +139,16 @@ def main_app():
             telefone2 = values['-TELEFONE2-']
             email = values['-EMAIL-']
             assinatura = Assinatura(nome, setor, [telefone1, telefone2], email)
-            print(assinatura)
             assinatura.gravar()
-            print(f'Gerando a assinatura de {nome}')
+            print(f'Gerando a assinatura {assinatura}')
+            ## abrir file explorer where the signature was generated
+            subprocess.Popen(f'explorer {PROJECT_PATH}\\assinaturas_personalizadas')
 
         elif event == '-GERAR_MASSA-':
             delete_current_signatures() # por enquanto é necessário deletar todas assinaturas. Eventualmente vou fazer uma checagem na hora de criar.
             create_signature_mass()
             print('Gerando assinaturas em massa')
+            subprocess.Popen(f'explorer {PROJECT_PATH}\\assinaturas_personalizadas')
 
     window.close()
 
