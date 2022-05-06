@@ -14,13 +14,15 @@ class Assinatura:
 
         self.nome = nome
         self.setor = setor
-        self.telefone_celular = telefone[0]
-        self.telefone_fixo = telefone[1]
+        self.telefone_particular = telefone[0]
+        self.telefone_secundario = telefone[1]
         self.email = email
-        if self.telefone_celular: # carregar o template com ou sem ícone de celular
+        if not self.telefone_secundario:
+            self.telefone_secundario = '24 3344-2250'
+        if self.telefone_particular: # carregar o template com ou sem ícone de celular
             self.image = Image.open(f"resources/assinatura_template_low_res_2tel.jpg")
             self.draw = ImageDraw.Draw(self.image)
-        else:
+        else: # se o secundário tiver vazio, será usado o da empresa
             self.image = Image.open(f"resources/assinatura_template_low_res_1tel.jpg")
             self.draw = ImageDraw.Draw(self.image)
 
@@ -40,7 +42,6 @@ class Assinatura:
             return f'assinaturas_personalizadas/{nome}_.png'
         return arquivo_path
 
-
     def gravar(self):
         # nome
         font = ImageFont.truetype("resources/fonts/darwin-pro-cufonfonts/Los Andes Type  Darwin Pro SemiBold.otf", 21)
@@ -55,11 +56,9 @@ class Assinatura:
 
         # telefone
         font = ImageFont.truetype("resources/fonts/estandar/Estandar-Regular.ttf", 13)
-        if self.telefone_celular: # se tem um número de celular
-            self.draw.text(((281, 104)), self.telefone_celular, self.BRANCO, font=font, align='right', anchor='la')
-            self.draw.text(((300, 127)), self.telefone_fixo, self.BRANCO, font=font, align='right', anchor='la')
-        else:
-            self.draw.text(((300, 127)), self.telefone_fixo, self.BRANCO, font=font, align='right', anchor='la')
+        if self.telefone_particular: # se tem um número particular
+            self.draw.text(((281, 104)), self.telefone_particular, self.BRANCO, font=font, align='right', anchor='la')
+        self.draw.text(((300, 127)), self.telefone_secundario, self.BRANCO, font=font, align='right', anchor='la')
 
         # email
         font = ImageFont.truetype("resources/fonts/estandar/Estandar-Regular.ttf", 14)
@@ -71,8 +70,8 @@ class Assinatura:
         self.image.save(nome_arquivo)
 
     def __repr__(self): # para testes no terminal
-        if self.telefone_celular:
-            return f"{self.nome} ({self.email}): {self.telefone_celular} | {self.telefone_fixo}"
+        if self.telefone_particular:
+            return f"{self.nome} ({self.email}): {self.telefone_particular} | {self.telefone_secundario}"
         else:
-            return f"{self.nome} ({self.email}): {self.telefone_fixo}"
+            return f"{self.nome} ({self.email}): {self.telefone_secundario}"
 

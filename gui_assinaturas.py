@@ -58,11 +58,34 @@ def create_main_window(theme):
             # )
         ],
         [sg.HorizontalSeparator(pad=((0, 0), (0, 10)))],
-        [sg.Text('Nome'), sg.Push(), sg.Input(size=(32, 1), pad=((0, 0), (0, 5)), key='-NOME-')],
-        [sg.Text('Setor/Cargo'), sg.Push(), sg.Input(size=(32, 1), pad=((0, 0), (0, 5)), key='-SETOR-')],
-        [sg.Text('Telefone primário'), sg.Push(), sg.Input(size=(32, 1), pad=((0, 0), (0, 5)), key='-TELEFONE1-')],
-        [sg.Text('Telefone secundário'), sg.Push(), sg.Input(size=(32, 1), pad=((0, 0), (0, 5)), key='-TELEFONE2-')],
-        [sg.Text('Email'), sg.Push(), sg.Input(size=(32, 1), pad=((0, 0), (0, 5)), key='-EMAIL-')],
+        [
+            sg.Text('Nome *'),
+            sg.Push(),
+            sg.Input(size=(32, 1), pad=((0, 0), (0, 5)), key='-NOME-')
+        ],
+        [
+            sg.Text('Setor/Cargo *'),
+            sg.Push(),
+            sg.Input(size=(32, 1),pad=((0, 0), (0, 5)), key='-SETOR-')
+        ],
+        [
+            sg.Text('Telefone particular'),
+            sg.Push(),
+            sg.Input(size=(32, 1), pad=((0, 0), (0, 5)),key='-TELEFONE1-',
+                tooltip="Opcional, se ficar em branco será selecionado a assinatura com apenas 1 ícone de telefone.")
+        ],
+        [
+            sg.Text('Telefone secundário'),
+            sg.Push(),
+            sg.Input(size=(32, 1), pad=((0, 0), (0, 5)), key='-TELEFONE2-',
+                tooltip="Opcional, caso fique vazio será usado o número da empresa automaticamente.")
+        ],
+        [
+            sg.Text('Email *'),
+            sg.Push(),
+            sg.Input(size=(32, 1), pad=((0, 0), (0, 5)),
+            key='-EMAIL-')
+        ],
         [
             sg.Button('Gerar nova assinatura', size=(22, 1), key='-GERAR-', pad=(0, 5)),
             sg.Push(),
