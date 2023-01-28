@@ -1,6 +1,6 @@
 import csv
 import os
-from Assinatura import Assinatura
+from assinacraft.src.signature import Signature
 
 def delete_current_signatures():
     for file in os.scandir('../assinaturas_personalizadas'):
