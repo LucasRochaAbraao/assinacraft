@@ -27,3 +27,5 @@ Em alguns segundos haverá um executável (.exe) no mesmo diretório do projeto.
 #### TODO
 - Permitir rodar o botão de gerar assinaturas em massa sem precisar apagar tudo antes (o script já faz isso, mas o ideal é ter uma checagem).
 - Criar um release com zip de todos arquivos necessários, já com o executável compilado.
+- Popup para confirmar geração em massa
+- Add docstrings everywhere

@@ -3,4 +3,6 @@ assinaturas_personalizadas/*
 !assinaturas_personalizadas/Lucas_Rocha.png
 elenco_real.csv
 .venv
-src/__pycache__/
+__pycache__/
+.idea/
+assinacraft.egg-info/

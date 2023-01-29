@@ -1,0 +1,46 @@
+app:
+    window_size: [600, 400]
+    title: "Assinacraft"
+    icon: "icon.png"
+    signatures_csv: "elenco.csv"
+    output_dir: "assinaturas_personalizadas/"
+    key_codes:
+        QT_ENTER_KEY1: "special 16777220"
+        QT_ENTER_KEY2: "special 16777221"
+
+gui:
+    font_primary: "Montserrat/Montserrat-Regular.ttf"
+    font_primary_size: 11
+    font_primary_attr: ""
+    font_secondary: "Grandstander/Grandstander-Black.ttf"
+    font_secondary_size: 15
+    font_secondary_attr: "bold"
+    theme: "DarkTeal12" # Roxo Claro=DarkBlue4 Azul Escuro=DarkBlue14 Escuro=DarkGrey10 Padrão=DarkTeal12 Aleatório=random
+
+signature:
+    default_optional_tel: "24 3344-2250"
+    primary_signature_img_template: "assinatura_template_1tel.jpg"
+    secondary_signature_img_template: "assinatura_template_2tel.jpg"
+    enable_all_caps: true
+    output_dir: "assinaturas_personalizadas/"
+
+    name_font: "darwin-pro-cufonfonts/Los Andes Type  Darwin Pro SemiBold.otf"
+    name_font_size: 21
+    name_font_color: [255, 151, 0] # GOLDEN
+    name_xy_coords: [261, 42]
+
+    department_font: "darwin-pro-cufonfonts/Los Andes Type  Darwin Pro Regular.otf"
+    department_font_size: 13
+    department_font_color: [0, 102, 183]: # BLUE
+    department_xy_coords: [261, 67]
+
+    tel_font: "estandar/Estandar-Regular.ttf"
+    tel_font_size: 13
+    tel_font_color: [250, 250, 250]: # WHITE
+    tel_xy_coords_personal: [281, 104]
+    tel_xy_coords_company: [300, 127]
+
+    email_font: "estandar/Estandar-Regular.ttf"
+    email_font_size: 13
+    email_font_color: [255, 151, 0]: # BLUE
+    email_xy_coords: [261, 82]
